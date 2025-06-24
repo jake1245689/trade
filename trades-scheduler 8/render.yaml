@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: trades-backend
+    env: docker
+    plan: free
+    dockerfilePath: backend/Dockerfile
+    rootDir: backend
+    envVars:
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_KEY
+        sync: false
+
+  - type: web
+    name: trades-frontend
+    env: docker
+    plan: free
+    dockerfilePath: frontend/Dockerfile
+    rootDir: frontend
+    envVars:
+      - key: REACT_APP_SUPABASE_URL
+        sync: false
+      - key: REACT_APP_SUPABASE_KEY
+        sync: false
